@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-29 09:42:25
+ * @LastEditTime: 2021-01-29 09:49:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\closure\demo01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="execute">点击执行命令</button>
+    <button id="undo">点击执行命令</button>
+    <script>
+        let TV = {
+            open() {
+                console.log('open')
+            },
+            close() {
+                console.log('close')
+            }
+        }
+        let OpenTvCommand = function(receiver){
+            this.receiver = receiver
+        };
+        OpenTvCommand.prototype.execute = function() {
+            this.receiver.open()
+        };
+        OpenTvCommand.prototype.undo = function() {
+            this.receiver.close()
+        };
+        let setCommand = (command) => {
+            document.getElementById('execute').onclick = function() {
+                command.execute()
+            }
+            document.getElementById('undo').onclick = function() {
+                command.undo()
+            }
+        }
+        setCommand(new OpenTvCommand(TV))
+    </script>
+</body>
+</html>

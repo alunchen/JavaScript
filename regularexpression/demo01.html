@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-22 09:38:52
+ * @LastEditTime: 2020-09-22 11:27:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \instance-deployd:\JavaScript\regularexpression\demo01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // let num = '1234567890';
+    // let newReg = /\B(?=(\d{3})+)/g;
+    // let res = num.match(newReg);
+    // let res2 = newReg.exec(num);
+    // console.log(res, res2)
+    //console.log(newReg.exec(num));
+    // while(res = newReg.exec(num)){
+    //     console.log(res[1])
+    // }
+
+    
+	var str='<a href="//www.aliexpress.com/store/product/OOOT-BAORJCT-174296-22mm-10yard-lot-cartoon-Ribbons-Thermal-transfer-Printed-grosgrain-Wedding-Accessories-DIY-handmade/2349150_32810795709.html" title="OOOT BAORJCT 174296 22mm 10yard/lot cartoon Ribbons Thermal transfer Printed grosgrain Wedding Accessories DIY handmade material">OOOT BAORJCT 174296 22mm 10yard/lot cartoon Ribbons...</a><a href="//www.aliexpress.com/store/product/OOOT-BAORJCT-174296-22mm-10yard-lot-cartoon-Ribbons-Thermal-transfer-Printed-grosgrain-Wedding-Accessories-DIY-handmade/2349150_32810795709.html" title="999OOOT BAORJCT 174296 22mm 10yard/lot cartoon Ribbons Thermal transfer Printed grosgrain Wedding Accessories DIY handmade material">OOOT BAORJCT 174296 22mm 10yard/lot cartoon Ribbons...</a>';
+    var reg=/title="(.*?)">/g;
+    var res = str.match(reg);
+    console.log(str.match(reg));
+    
+    // while( res = reg.exec(str))
+    // {
+    // console.log(res[1]);
+    // }
+</script>
