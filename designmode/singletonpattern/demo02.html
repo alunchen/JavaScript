@@ -1,0 +1,64 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-22 10:05:02
+ * @LastEditTime: 2021-03-22 10:29:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \instance-deployd:\JavaScript\designmode\singletonpattern\demo02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button  id="loginBtn">按钮</button>
+    </div>
+    <div id="div1"></div>
+</body>
+</html>
+<script>
+    let createLoginLayer = function() {
+        let div = document.createElement('div');
+        div.innerHTML = ' 弹出层浮框';
+        div.style.width = '100px';
+        div.style.height = '100px';
+        div.style.border = '1px solid #ccc';
+        div.style.display = 'none';
+        document.documentElement.appendChild(div);
+        return div
+    }
+    let getSingle = function(fn) {
+        let result;
+        return function() {
+            return result || (result = fn.apply(this, arguments))
+        }
+    }
+
+    let createSingleLoginLayer = getSingle(createLoginLayer);
+    let loginLayer = createSingleLoginLayer();
+    document.getElementById('loginBtn').onclick = function() {
+        let loginLayer = createSingleLoginLayer();
+        loginLayer.style.display = 'block'
+    }
+
+    let bindEvent = getSingle(function() {
+        console.log('bindEvent')
+        document.getElementById('div1').addEventListener('click', function(){
+            alert('click')
+        })
+        return true
+    })
+    let render = function() {
+        console.log('loading...');
+        bindEvent()
+    }
+    render();
+    render();
+    render()
+</script>
