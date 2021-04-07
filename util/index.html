@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-06 17:35:34
+ * @LastEditTime: 2021-04-07 10:08:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JavaScript\util\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./util.js"></script>
+    <script>
+        let str = 'str';
+        let num = 123;
+        let b = true;
+        let d = new Date();
+        let obj = {
+            a: str,
+            b: b,
+            c : d,
+        }
+        let arr = [str, num, b, d,obj];
+        let s = Symbol('s');
+        let u = undefined;
+        let n = null;
+        let reg = /^ab$/;
+        let fn = function(a, b){
+            return a + b
+        }
+        let target = {
+            [s]: d,
+            arr: arr,
+            obj:{
+                a: arr,
+                b: obj,
+            }
+        }
+        let copyTarget = deepClone(target);
+        console.log(target,copyTarget)
+    </script>
+</body>
+</html>
