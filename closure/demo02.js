@@ -6,7 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\closure\demo02.js
  */
-for(let i = 0, type; type = [1,2,3][i++];) {
+for(let i = 0, type; type = [1,23,231][i++];) {
     console.log(i)
     console.log(type)
 }
