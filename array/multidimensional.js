@@ -3,7 +3,7 @@
  * @Date: 2020-10-21 09:48:03
  * @LastEditTime: 2020-10-21 09:56:27
  * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Description: 多维数组
  * @FilePath: \instance-deployd:\JavaScript\array\mutildimensional.js
  */
 let arr = [];

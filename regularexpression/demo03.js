@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:41:10
- * @LastEditTime: 2021-01-13 14:31:24
+ * @LastEditTime: 2021-05-14 14:52:01
  * @LastEditors: Please set LastEditors
  * @Description: 正则表达式 字符匹配
  * @FilePath: \instance-deployd:\JavaScript\regularexpression\demo03.js
@@ -15,7 +15,7 @@
 
 let regex = /ab{2,5}c/g;
 let str = 'abc abbc abbbc abbbbc abbbbbc abbbbbbc';
-console.log(str.match(regex))
+// console.log(str.match(regex))
 
 /**
  *      NOTE： 案例中用的正则是 /ab{2,5}c/g，其中 g 是正则的一个修饰符。表示全局匹配，
@@ -33,7 +33,7 @@ console.log(str.match(regex))
  */
 let regex2 = /a[123]b/g;
 let str2 = 'a0b a1b a2b a3b a4b';
-console.log(str2.match(regex2))
+// console.log(str2.match(regex2))
 
 
 
@@ -82,7 +82,7 @@ console.log(str2.match(regex2))
 let regex3 = /\d{2,5}/g;
 // let regex3 = /\d{2,5}?/g;
 let str3 = '123 1234 12345 123456';
-console.log(str3.match(regex3))
+// console.log(str3.match(regex3))
 
 
 /**
@@ -94,12 +94,12 @@ console.log(str3.match(regex3))
 
 let regex4 = /good|nice/g;
 let str4 = 'good idea, nice try';
-console.log(str4.match(regex4))
+// console.log(str4.match(regex4))
 
 // let regex5 = /good|goodbye/g;
 let regex5 = /goodbye|good/g;
 let str5 = 'goodbye';
-console.log(str5.match(regex5))
+// console.log(str5.match(regex5))
 // 分支结构也是惰性的，即当前面的匹配上了，后面的就不再尝试了。
 
 
@@ -110,13 +110,13 @@ console.log(str5.match(regex5))
 
 let regular = /#[0-9a-fA-F]{6}|[0-9a-fA-F]{3}/g;
 let string = '#ffbbad  #Fc01DF  #FFF #ffE';
-console.log(string.match(regular))
+// console.log(string.match(regular))
 
 // 匹配时间
 // 23:59   02:05
 
-let regular2 = /([01][0-2]|[2][0-4]):[0-5][0-9]/g;
-let string2 = '23:59   02:05';
+let regular2 = /([01][0-9]|[2][0-4]):[0-5][0-9]/g;
+let string2 = '18:59   02:05';
 console.log(string2.match(regular2))
 
 // 匹配日期
@@ -124,7 +124,7 @@ console.log(string2.match(regular2))
 
 let regular3 = /\d{4}-(0[1-9]|1[0-2])-([12][0-9]|0[1-9]|3[0-1])/g;
 let string3 = '2020-01-13  2020-01-14';
-console.log(string3.match(regular3))
+// console.log(string3.match(regular3))
 
 // window 操作系统文件路径
 /**
@@ -135,3 +135,6 @@ console.log(string3.match(regular3))
     F:\
  */
 let regular4 = /^[a-zA-Z]:\\([^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/;
+
+let regular5 = /[^\\:*<>|"?\r\n/]/;
+console.log(regular5.test('\\'))
