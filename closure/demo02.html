@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <script>
+    let nodes = document.getElementsByTagName('div');
+    // for(var i = 0; i < nodes.length; i++) {
+    //   nodes[i].onclick = function() {
+    //     alert(i)
+    //   }
+    // }
+    // div 的 onclick 是异步事件，当事件被触发时，for循环早已结束， 此时变量i的值已经是5，
+
+    for(var i = 0; i < nodes.length; i++) {
+      (function(i){
+        nodes[i].onclick = function() {
+          alert(i)
+        }
+      })(i)
+      
+    }
+    
+  </script>
+</body>
+</html>
