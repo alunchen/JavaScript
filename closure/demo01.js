@@ -6,6 +6,13 @@
  * @Description: In User Settings Edit
  * @FilePath: \instance-deployd:\JavaScript\closure\demo01.js
  */
+
+/**     闭包（closure）
+ *      
+ *      闭包的形成与变量的作用域以及变量的生存周期密切相关
+ *      变量的作用域：变量的有效范围
+ * 
+ */
 // let mult = function() {
 //     let a = 1;
 //     for(let i = 0; l = arguments.length, i < l; i++) {

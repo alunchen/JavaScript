@@ -6,8 +6,14 @@
  * @Description: In User Settings Edit
  * @FilePath: \JavaScript\closure\demo02.js
  */
-for(let i = 0, type; type = [1,23,231][i++];) {
-    console.log(i)
+var Type = {};
+// var 是全局变量， let 在{}是局部变量
+for(let i = 0, type; type = ['String','Array','Object'][i++];) {
     console.log(type)
+    Type[`is${type}`] = function(obj) {
+        console.log(type)
+        return Object.prototype.toString.call(obj) === `[object ${type}]`
+    }
 }
 
+Type.isArray([])

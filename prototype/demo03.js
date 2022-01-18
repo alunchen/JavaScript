@@ -12,4 +12,4 @@ function Person() {
 }
 
 const a = new Person;
-console.log(a.length)
+console.log(a, a.length)
