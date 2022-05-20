@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #box{
+                width: 800px;
+                height: 200px;
+                margin: 0 auto;
+                border: 1px solid red;
+                display: flex;
+            }
+            .slide{
+                width:200px;
+                height: 200px;
+            }
+            .circle{
+                width: 60px;
+                height: 60px;
+                margin: 70px 0;
+                border-radius: 50%;
+                background: green;
+                float: left;
+            }
+            .line{
+                width: 1px;
+                height: 2px;
+                margin: 99px 0;
+                background: skyblue;
+                float: left;
+                opacity: 0;
+            }
+            #btnbox{
+                width: 800px;
+                margin:20px auto;
+                height: 40px;
+                 
+            }
+            #left,#right{
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                border: 1px solid red;
+                font-size: 24px;
+            }
+            #left{
+                float: left;
+            }
+            #right{
+                float: right;
+            }
+             
+        </style>
+    </head>
+     
+    <body>
+        <div id="box">
+            <div class="slide">
+                <div class="circle"></div>
+                <div class="line"></div>
+            </div>
+            <div class="slide">
+                <div class="circle"></div>
+                <div class="line"></div>
+            </div>
+            <div class="slide">
+                <div class="circle"></div>
+                <div class="line"></div>
+            </div>
+            <div class="slide">
+                <div class="circle"></div>
+                <div class="line"></div>
+            </div>
+             
+        </div>
+        <div id="btnbox">
+            <div id="left"><</div>
+            <div id="right">></div>
+        </div>
+    </body>
+</html>
+<script>
+ 
+var item = document.getElementsByClassName("line");
+var index = 0;
+document.getElementById("right").onclick = function(){
+    //alert(123);
+     
+    item[index].style.opacity = 1;
+    item[index].style.width = "136px";
+    item[index].style.transition = "width 2s, opacity 2s";
+    index++;
+    console.log(index)
+}
+document.getElementById("left").onclick = function(){
+    index--; 
+    item[index].style.opacity = 0;
+    item[index].style.width = "1px";
+    item[index].style.transition = "width 2s, opacity 2s"
+     
+    console.log(index)
+}
+ 
+</script>

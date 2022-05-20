@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            #box{
+                width:369px;
+                height:261px;
+                position:relative;
+                margin:40px auto;
+                border:1px solid red;
+            }
+            .slide{
+                width:369px;
+                height:261px;
+                position:absolute;
+                 
+            }
+            .slide img{
+                width:100%;
+                height:100%;
+            }
+            .slide2{
+                background-color: skyblue;
+                opacity: 0;
+            }
+            .slide3{
+              background-color: pink;
+                opacity: 0;
+            }
+            .slide4{
+              background-color: orchid;
+                opacity: 0;
+            }
+            #dot{
+                width:100px;
+                height:30px;
+                /*border:1px solid red;*/
+                position: absolute;
+                left:140px;
+                bottom:10px;
+                 
+            }
+            .icon{
+                width:12px;
+                height:12px;
+                float: left;
+                border-radius: 50%;
+                background:white;
+                margin: 4px 4px;
+            }
+            .active{
+                background:red;
+            }
+            #container{
+                width:400px;
+                height: 270px;
+                border:1px solid blue;
+                margin:0 auto;
+            }
+        </style>
+        <div id="box">
+            <!-- <div class="slide slide1"><img src="1.jpg"/></div>
+            <div class="slide slide2"><img src="2.jpg"/></div>
+            <div class="slide slide3"><img src="3.jpg"/></div>
+            <div class="slide slide4"><img src="4.jpg"/></div> -->
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+            <div class="slide slide4"></div>
+            <div id="dot">
+                <p class="icon active"></p>
+                <p class="icon"></p>
+                <p class="icon"></p>
+                <p class="icon"></p>
+            </div>
+        </div>
+        <div id="container">
+             
+        </div>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+    var box = document.getElementById("box"),
+        slide = document.getElementsByClassName("slide"),
+        icon = document.getElementsByClassName("icon");
+        //console.log(slide.length);
+    /* var i = 0;
+     var temp = '';
+    setInterval(function(){
+         
+            temp = i % slide.length;
+            slide[temp].style.opacity = 0;
+            i++;
+            slide[i%slide.length].style.opacity = 1
+    },1000)*/
+     
+    //透明轮播
+    function Banner(el,icon,s){
+        var i = 0,temp = "";
+        setInterval(function(){
+            temp = i % el.length;
+            el[temp].style.opacity = 0;
+            icon[temp].style.background = "white"
+            i++;
+            el[i % el.length].style.opacity = 1;
+            icon[i % icon.length].style.background = "red"
+        },s)
+    }
+    Banner(slide,icon,1500)
+     
+    //左右轮播
+</script>
