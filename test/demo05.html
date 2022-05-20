@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            #container{
+                width: 600px;
+                height: 600px;
+                border: 1px solid red; 
+            }
+            #box{
+                width: 600px;
+                height: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <audio id="box"></audio>
+        </div>
+    </body>
+</html>
+<script>
+      console.log();
+      navigator.mediaDevices.getUserMedia({
+            video :false,
+            audio : true
+      }).then(function(stream){
+        var audio = document.getElementById("box");
+        audio.src = window.URL.createObjectURL(stream);
+        audio.onloadedmetadata = function(e){
+            audio.play()
+        }
+    }).catch(function(error){
+        console.log(error)
+    })
+       
+    /*navigator.MediaDevices.getUserMedia({
+        video :false,
+        audio : true
+    }).then(function(stream){
+        var video = document.getElementById("box");
+        video.src = window.URL.createObjectURL(stream);
+        video.onloadedmetadata = function(e){
+            video.play()
+        }
+    }).catch(function(error){
+        console.log(error)
+    })
+    */
+</script>

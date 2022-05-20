@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+            #container{
+                width: 300px;
+                height: 300px;
+                /*border: 1px solid red;*/
+                margin: 150px auto;
+                position: relative;
+                transform-style: preserve-3d;
+                /*transform: rotateX(-26deg) rotateY(-26deg);*/
+                animation:active 4s linear infinite ;
+            }
+            #container:hover .slide1{
+                transform: translateZ(300px);
+            }
+            #container:hover .slide2{
+                transform: rotateY(90deg) translateZ(300px);
+            }
+            #container:hover .slide3{
+                transform: rotateY(180deg) translateZ(300px);
+            }
+            #container:hover .slide4{
+                transform: rotateY(-90deg) translateZ(300px);
+            }
+            #container:hover .slide5{
+                transform: rotateX(90deg) translateZ(300px);
+            }
+            #container:hover .slide6{
+                transform: rotateX(-90deg) translateZ(300px);
+            }
+            .slide{
+                width: 300px;
+                height: 300px;
+                position:absolute;
+                font-size: 48px;
+                text-align: center;
+                line-height: 300px;
+                opacity: 0.6;
+                transition: 1s linear;
+            }
+            .slide1{
+                background: red;
+                transform: translateZ(150px);
+            }
+            .slide2{
+                background: blue;
+                transform: rotateY(90deg) translateZ(150px);
+            }
+            .slide3{
+                background: green;
+                transform: rotateY(180deg) translateZ(150px);
+            }
+            .slide4{
+                background: orange;
+                transform: rotateY(-90deg) translateZ(150px);
+            }
+            .slide5{
+                background: yellow;
+                transform: rotateX(90deg) translateZ(150px);
+            }
+            .slide6{
+                background: white;
+                transform: rotateX(-90deg) translateZ(150px);
+            }
+            #box{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                /*background: black;*/
+                left: 100px;
+                top: 100px;
+                transform-style: preserve-3d;
+            }
+            .list{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                font-size: 32px;
+                text-align: center;
+                line-height: 200px;
+                opacity: 0.8;
+            }
+            .list1{
+                background: red;
+                transform: translateZ(50px);
+            }
+            .list2{
+                background: blue;
+                transform: rotateY(90deg) translateZ(50px);
+            }
+            .list3{
+                background: green;
+                transform: rotateY(180deg) translateZ(50px);
+            }
+            .list4{
+                background: orange;
+                transform: rotateY(-90deg) translateZ(50px);
+            }
+            .list5{
+                background: yellow;
+                transform: rotateX(90deg) translateZ(50px);
+            }
+            .list6{
+                background: white;
+                transform: rotateX(-90deg) translateZ(50px);
+            }
+            @keyframes active{
+                to{
+                    transform: rotate3d(1,1,1,360deg);
+                }
+            }
+             
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="slide slide1">slide1</div>
+            <div class="slide slide2">slide2</div>
+            <div class="slide slide3">slide3</div>
+            <div class="slide slide4">slide4</div>
+            <div class="slide slide5">slide5</div>
+            <div class="slide slide6">slide6</div>
+            <div id="box">
+                <div class="list list1"></div>
+                <div class="list list2"></div>
+                <div class="list list3"></div>
+                <div class="list list4"></div>
+                <div class="list list5"></div>
+                <div class="list list6"></div>
+            </div>
+        </div>
+         
+    </body>
+</html>
