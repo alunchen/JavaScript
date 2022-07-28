@@ -17,11 +17,12 @@
 let pattern = /.(bc)/g;
 let str = 'abc,abd,cbc';
 let arr = pattern.exec(str);
-//console.log(arr[0], arr[1], arr.index, arr.input)
+console.log(arr)
+console.log(arr[0], arr[1], arr.index, arr.input)
 
 // 2. test()    接收一个字符串参数，若模式与该参数匹配则返回true，否则返回false
 let b = pattern.test(str);
-console.log(b)
+// console.log(b)
 
 // String的方法
 // 1. match()  // 返回数组, 没匹配到返回null       index   input
