@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      border: 1px solid #ccc;
+      display: block;
+      margin: 0 auto;
+    }
+    .btn {
+      text-align: center;
+
+    }
+  </style>
+</head>
+<body>
+  <canvas id="container"></canvas>
+  <div class="btn">
+    <button id="btn1">开始绘画</button>
+    <button id="btn2">清除</button>
+  </div>
+  
+</body>
+</html>
+<script>
+  const el = document.getElementById('container');
+  const ctx = el.getContext('2d');
+  el.width = 1000;
+  el.height = 500;
+  ctx.strokeStyle = '#111';
+  ctx.shadowColor = '#000';
+  ctx.lineWidth = 2;
+  let arr = []
+  let draw = false;
+  el.onmousedown = (e) => {
+    draw = true;
+    ctx.beginPath()
+  }
+  el.onmouseup = (e) => {
+    draw = false;
+    arr.push(-1)
+  }
+  el.onmousemove = (e) => {
+    if(draw) {
+      const x = e.pageX - el.offsetLeft;
+      const y = e.pageY - el.offsetTop;
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      arr.push([x, y])
+    }
+  }
+  document.getElementById('btn2').onclick = () => {
+    ctx.clearRect(0, 0, 1000, 500);
+    arr = [];
+  }
+
+  document.getElementById('btn1').onclick = () => {
+    ctx.clearRect(0, 0, 1000, 500);
+    ctx.beginPath();
+    console.log(arr)
+    arr.forEach((item, i) => {
+      if(item === -1) {
+        ctx.beginPath()
+      } else {
+        setTimeout(() => {
+          ctx.lineTo(item[0], item[1]);
+          ctx.stroke()
+        }, 1000);
+      }
+    })
+  }
+</script>
