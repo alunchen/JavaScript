@@ -39,7 +39,9 @@ class MyPromise {
 const promise = new MyPromise((resolve, reject) => {
   // resolve(123);
   // reject('111')
-  throw 123
+  setTimeout(() => {
+    throw 123
+  }, 0)
 })
 console.log(promise)
 
