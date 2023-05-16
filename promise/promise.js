@@ -98,7 +98,7 @@ class MyPromise {
   }
   // 判断值是否满足Promise A+规范
   #isPromise(val) {
-    // Promise A+ 规范：一个对象或者函数有一个属性为then的函数
+    // Promise A+ 规范：一个对象或者函数有一个属性为then的函数  互操作性
     if(val !== null && (typeof val === 'object' || typeof val === 'function')) {
       return typeof val.then === 'function'
     }
