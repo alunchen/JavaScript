@@ -18,7 +18,7 @@
 </head>
 <body>
   <div id="container"></div>
-  <script src="./demo02.js"></script>
+  <script src="./demo01.js"></script>
   <script>
     let count = 0;
     const container = document.getElementById('container');
@@ -28,7 +28,7 @@
       container.innerHTML = count++
     }
     // container.addEventListener('mousemove', fn)
-    container.addEventListener('mousemove', debounce(fn, 1000, true ))
+    container.addEventListener('mousemove', debounce(fn, 500))
   </script>
 </body>
 </html>
