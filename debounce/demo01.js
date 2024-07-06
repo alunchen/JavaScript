@@ -15,6 +15,7 @@
  */
 
 function debounce(fn, wait) {
+  console.log('123123132312123')
   let timer = null
   return function() {
     let arg = arguments;
