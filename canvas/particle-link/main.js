@@ -48,7 +48,6 @@ class Point {
       }
       this.x = newX;
       this.y = newY;
-      this.timer = Date.now()
     }
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
