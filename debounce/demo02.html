@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 100%;
+      height: 500px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    const debounce = (fn, wait = 1000) => {
+      let timer = null;
+      console.log(this)
+      return function() {
+        const context = this;
+        const args = arguments;
+        if(timer !== null) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          fn.apply(context, arguments)
+        }, wait);
+      }
+    }
+
+    const box = document.querySelector('#box');
+    // box.addEventListener('click', () => {
+    //   console.log('click', this)
+    // })
+    // box.addEventListener('mousemove', () => {
+    //   console.log('111')
+    // })
+    let count = 0;
+    let resultCount = 0;
+    const fn = function(params){
+      console.log(`执行了${++resultCount}次`)
+      console.log(params)
+      console.log(this)
+    }
+    const a = 'aaaa';
+    box.addEventListener('click', debounce(fn))
+  </script>
+</body>
+</html>
