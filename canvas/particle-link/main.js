@@ -20,8 +20,8 @@ class Point {
     this.x = getRandomNum(0, canvas.width  - this.r);
     this.y = getRandomNum(0, canvas.height  - this.r);
     this.timer = null;
-    this.xSpeed = getRandomNum(-50, 50);
-    this.ySpeed = getRandomNum(-50, 50);
+    this.xSpeed = getRandomNum(-100, 100);
+    this.ySpeed = getRandomNum(-100, 100);
   }
   draw() {
     if(this.timer) {
@@ -48,7 +48,6 @@ class Point {
       }
       this.x = newX;
       this.y = newY;
-      this.timer = Date.now()
     }
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
@@ -59,7 +58,7 @@ class Point {
 }
 
 class Graph {
-  constructor(pointLength = 40, maxDis = 400) {
+  constructor(pointLength = 50, maxDis = 500) {
     this.points = new Array(pointLength).fill(0).map(() => new Point());
     this.maxDis = maxDis;
     
