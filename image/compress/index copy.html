@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="filedom">
+  <img src="#" alt="" id="img">
+  <button id="btn">获取</button>
+  <script type="text/javascript" src="../exif/exif.js"></script>
+  <!-- <script src="./index.js"></script> -->
+   <script>
+"use strict";
+
+window.onload = function() {
+  const filedom = document.getElementById("filedom");
+  const imgdom = document.getElementById("img");
+  const btn = document.getElementById("btn");
+  filedom.addEventListener('change', function(val) {
+    const imgFile = val.target.files[0];
+    console.log('imgfile', imgFile)
+  })
+  btn.onclick =  function() {
+    const imgFile = filedom.files[0];
+    console.log(imgFile)
+    if(!imgFile){    
+        alert("请选择图片文件！");
+        return false;
+    }
+    showImage(imgFile,function(src){
+        imgdom.src = src;
+        console.log('imgdom', imgdom)
+        EXIF.getData(imgdom, function() {
+              const allMetaData = EXIF.getAllTags(this);
+              console.log('allMetaData', allMetaData)
+            });
+        
+    });
+
+  }
+  function showImage(file,callback){
+    const reader = new FileReader();
+    reader.onload = function(){
+        callback(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+   </script>
+</body>
+</html>

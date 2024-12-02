@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <img src="DSCN0614_small.jpg" id="img1" />
+  <pre id="allMetaDataSpan"></pre>
+  <script type="text/javascript" src="../exif/exif.js"></script>
+  <script>
+        "use strict";
+        window.onload=getExif;
+
+        function getExif() {
+            const img1 = document.getElementById("img1");
+            EXIF.getData(img1, function() {
+              const allMetaData = EXIF.getAllTags(this);
+              const allMetaDataSpan = document.getElementById("allMetaDataSpan");
+              allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+              console.log('allMetaData', allMetaData)
+            });
+
+            
+        }
+    
+  </script>
+</body>
+</html>
