@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>按钮</button>
+  <script>
+    // 解决回调函数中的this 丢失
+    class Obj {
+      constructor() {
+        this.name = 'abc';
+        this.fn = this.fn.bind(this)
+      }
+      fn() {
+        console.log(this.name)
+      }
+    }
+    const obj = new Obj()
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', obj.fn)
+  </script>
+</body>
+</html>
