@@ -52,14 +52,15 @@ class particalLink {
       for(let j = i+1; j < points.length; j++) {
         const p2 = points[j];
         const d = this.getPointDis(p1, p2);
-        if(d > maxDis) {
-          continue;
-        }
+        // if(d > maxDis) {
+        //   continue;
+        // }
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
         ctx.closePath();
-        ctx.strokeStyle = `rgba(200, 200, 200, ${1 - d/maxDis})`;
+        // ctx.strokeStyle = `rgba(200, 200, 200, ${1 - d/maxDis})`;
+        ctx.strokeStyle = `rgba(200, 200, 200, 1)`;
         ctx.stroke();
       }
     }

@@ -8,6 +8,8 @@ const getRandomNum = (min, max) => {
   return Math.floor(Math.random() * (max + 1 - min) + min)
 }
 
+// requestAnimationFrame
+
 const { devicePixelRatio = 1 } = window;
 const canvas = document.getElementById('cvs');
 canvas.width = window.innerWidth * devicePixelRatio;
